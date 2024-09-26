@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#hanman {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+#word {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+input{
+    padding: 10px 15px;
+    margin: 5px;
+}
