@@ -9,6 +9,7 @@ body{
     display: grid;
     justify-content: center;
     align-items: center;
+    height: 20vh;
     background: linear-gradient(135deg,#ff9a9e,#fad0c4);
     animation: backgroundMove 10s infinite alternate;
 }
@@ -17,7 +18,7 @@ body{
 #hangman {
     font-size: 48px;
     margin: 20px 0;
-    justify-content: center;
+   
 }
 
 #word {

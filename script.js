@@ -4,13 +4,14 @@ const words = [
     {word: "desenvolvimento", hint: "criação de software."},
     {word: "computador", hint: "máquina eletrônica para processamento."},
     {word: "algoritmo", hint: "sequência de passos para resolver um problema"},
-    {word: "Debug", hint: "processo de encontrar e corrigir erros em um programa"},
-    {word: "Interface", hint: "meio de comunicação entre usuário e sistema"},
-    {word: "Variável", hint: "armazenamento temporário de dados no código"},
-    {word: "Compilador", hint: "Software que converte código para linguagem de máquina"},
-    {word: "Framework", hint: "conjunto de ferramentas para desenvolvimento de software"},
-    {word: "Banco de dados", hint: "armazenamento organizado de informções"},
+    {word: "debug", hint: "processo de encontrar e corrigir erros em um programa"},
+    {word: "interface", hint: "meio de comunicação entre usuário e sistema"},
+    {word: "variável", hint: "armazenamento temporário de dados no código"},
+    {word: "compilador", hint: "Software que converte código para linguagem de máquina"},
+    {word: "framework", hint: "conjunto de ferramentas para desenvolvimento de software"},
+    {word: "banco_de_dados", hint: "armazenamento organizado de informções"},
 ];
+  
 
 let selectedWordObj = words[Math.floor(Math.random() * words.length)];
 let selectedWord = selectedWordObj.word;
@@ -38,16 +39,16 @@ function updateHangman(){
 
 function checkGameOver(){
     if (attempts === 0){
-        document.getElementById("message").innerHTML = "VOCÊ PERDEU! A palavra era:" + selectedWord;
+        document.getElementById("message").innerHTML = " <br> VOCÊ PERDEU! A palavra era: <br>" + selectedWord;
         document.getElementById("guessBtn").disabled = true;
         document.getElementById("hintBtn").disabled = true;
         document.getElementById("restartBtn").style.display = "block";
 
     } else if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
-        document.getElementById("message").innerHTML = "PARABÉNS, VOCÊ GANHOU!";
+        document.getElementById("message").innerHTML = " <br> PARABÉNS, VOCÊ GANHOU! <br>";
         document.getElementById("guessBtn").disabled = true;
         document.getElementById("hintBtn").disabled = true;
-        document.getElementById("restarBtn").style.display = "block";
+        document.getElementById("restartBtn").style.display = "block";
         }
 }
 
@@ -62,6 +63,7 @@ document.getElementById("guessBtn").addEventListener("click", () => {
             attempts--;
         }
         displayWord();
+        updateHangman();
         checkGameOver();
     }
 });
@@ -79,8 +81,10 @@ document.getElementById("restartBtn").addEventListener("click", () => {
     document.getElementById("guessBtn").disabled = false;
     document.getElementById("hintBtn").disabled = false;
     document.getElementById("restartBtn").style.display = "none";
-    dosplayWord();
+    displayWord();
+    updateHangman();
 });
 
 //iniciar o jogo
 displayWord();
+updateHangman();
