@@ -2,7 +2,14 @@ const words = [
     {word: "javascript", hint:"linguagem de programação para web"},
     {word: "programação", hint: "processo de escrever códigos."},
     {word: "desenvolvimento", hint: "criação de software."},
-    {word: "computador", hint: "máquina eletrônica para processamento."}
+    {word: "computador", hint: "máquina eletrônica para processamento."},
+    {word: "algoritmo", hint: "sequência de passos para resolver um problema"},
+    {word: "Debug", hint: "processo de encontrar e corrigir erros em um programa"},
+    {word: "Interface", hint: "meio de comunicação entre usuário e sistema"},
+    {word: "Variável", hint: "armazenamento temporário de dados no código"},
+    {word: "Compilador", hint: "Software que converte código para linguagem de máquina"},
+    {word: "Framework", hint: "conjunto de ferramentas para desenvolvimento de software"},
+    {word: "Banco de dados", hint: "armazenamento organizado de informções"},
 ];
 
 let selectedWordObj = words[Math.floor(Math.random() * words.length)];
@@ -14,6 +21,20 @@ function displayWord(){
     const WordContainer = document.getElementById("word");
     WordContainer.innerHTML = selectedWord.split("").map(letter => (guessedLetters.includes(letter)? letter : "_")).join("");
 }
+
+function updateHangman(){
+    const hangmanContainer=document.getElementById("hangman");
+    const stages = [
+        "",
+        "____<br>|        |<br>|        |<br>|        O<br>|       /|\\<br>|       / <br>|<br>",
+        "____<br>|        |<br>|        |<br>|        O<br>|       /|\\<br>|<br>|<br>",
+        "____<br>|        |<br>|        |<br>|        O<br>|       /<br>|<br>|<br>",
+        "____<br>|        |<br>|        |<br>|        O<br>|<br>|<br>|<br>",
+        "____<br>|        |<br>|        |<br>|<br>|<br>|<br>|<br>",
+        "____<br>|        |<br>|<br>|<br>|<br>|<br>|<br>|<br>",
+      ];
+      hangmanContainer.innerHTML = stages[attempts];
+    }
 
 function checkGameOver(){
     if (attempts === 0){
