@@ -73,16 +73,7 @@ document.getElementById("hintBtn").addEventListener("click", () => {
 });
 
 document.getElementById("restartBtn").addEventListener("click", () => {
-    selectedWordObj = words[Math.floor(match.random() * words.length)];
-    selectedWord = selectedWordObj.word;
-    guessedLetters = [];
-    attempts = 6;
-    document.getElementById("message").innerHTML = "";
-    document.getElementById("guessBtn").disabled = false;
-    document.getElementById("hintBtn").disabled = false;
-    document.getElementById("restartBtn").style.display = "none";
-    displayWord();
-    updateHangman();
+    location.reload();
 });
 
 //iniciar o jogo
